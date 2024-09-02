@@ -10,3 +10,5 @@ Integrantes da equie:
   - Paulo Martins Cavalcanti 
   - Pedro Campello Monteiro Maia 
   - Gabriel Abreu de Sousa Barbosa 
+
+![image](https://github.com/user-attachments/assets/dedf58b4-bc9f-4610-b454-89a5a107dc49)
