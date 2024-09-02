@@ -5,8 +5,8 @@ No Brasil, milhões de pessoas enfrentam desafios diários relacionados à saúd
 
 Integrantes da equie:
 
-  Gilvando Gonçalves Guerra
-  João Pedro Costa de Oliveira
-  Paulo Martins Cavalcanti
-  Pedro Campello Monteiro Maia
+  Gilvando Gonçalves Guerra \n
+  João Pedro Costa de Oliveira \n
+  Paulo Martins Cavalcanti \n
+  Pedro Campello Monteiro Maia \n
   Gabriel Abreu de Sousa Barbosa 
