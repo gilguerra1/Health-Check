@@ -11,7 +11,8 @@ Integrantes da equie:
   - Pedro Campello Monteiro Maia 
   - Gabriel Abreu de Sousa Barbosa 
 
-![image](https://github.com/user-attachments/assets/1a024e53-6491-4879-a595-86970c623ea5)
+![image](https://github.com/user-attachments/assets/21738390-400f-4a77-ba5c-dfe900cd1990)
+
 
 
 ![image](https://github.com/user-attachments/assets/dedf58b4-bc9f-4610-b454-89a5a107dc49)
