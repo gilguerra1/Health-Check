@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from users.views import login_view, cadastro_usuario_view, home_view
+from users.views import login_view, cadastro_usuario_view, home_view, logout_view
 from healthcareProfessional.views import cadastro_profissional_view
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('cadastro_usuario/', cadastro_usuario_view, name='cadastro_usuario'),
     path('home/', home_view, name='home'),
-    path('cadastro_profissional', cadastro_profissional_view, name='cadastro_profissional')
+    path('cadastro_profissional/', cadastro_profissional_view, name='cadastro_profissional'),
+    path('logout/', logout_view, name = 'logout'),
 ]
