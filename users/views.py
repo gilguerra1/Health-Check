@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import User
+from .models import Usuario
+from healthcareProfessional.models import HealthProfessional
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def home_view(request):
-
     return render(request, 'tela_inicio.html')
+
 
 def logout_view(request):
     logout(request)
@@ -17,24 +19,36 @@ def logout_view(request):
 
 
 def login_view(request):
-
     if request.method == 'POST':
-
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user = authenticate(request, username = email, password = password)
+        # Tenta autenticar o usuário usando o modelo de usuário padrão
+        user = authenticate(request, username=email, password=password)
 
         if user is not None:
-
             login(request, user)
-            return redirect('/admin/')
-        
+            print("Usuário autenticado:", user)
+            messages.success(request, "Login realizado com sucesso!")
+            return redirect('/home/')
         else:
+            print("Autenticação falhou")
+            try:
+                # Tenta obter o profissional de saúde
+                health_professional = HealthProfessional.objects.get(email=email)
+                # Verifica a senha do profissional de saúde
+                if check_password(password, health_professional.password):
+                    # Autentica e faz login do profissional de saúde
+                    user = health_professional.user  # Certifique-se de que esse campo exista
+                    login(request, user)
+                    messages.success(request, "Login realizado com sucesso!")
+                    return redirect('/home/')
+                else:
+                    messages.error(request, "Credenciais inválidas")
+            except HealthProfessional.DoesNotExist:
+                messages.error(request, "Credenciais inválidas")
 
-            return HttpResponse("Credenciais inválidas", status = 401)
-
-    return render(request, 'Login.html')
+    return render(request, 'Tela_Login.html')
 
 def cadastro_usuario_view(request):
 
@@ -47,15 +61,19 @@ def cadastro_usuario_view(request):
         confirm_password = request.POST.get('confirm_password')
         birth_date = request.POST.get('birth_date')
 
+        if not all([name, cpf, email, password, confirm_password, birth_date]):
+
+            messages.error(request, 'Todos os campos são obrigatórios!')
+            
         if password != confirm_password:
 
             messages.error(request, 'As senhas não coincidem!')
         
-        elif User.objects.filter(cpf = cpf).exists():
+        elif Usuario.objects.filter(cpf = cpf).exists():
 
             messages.error(request, 'Esses CPF já está cadastrado!')
         
-        elif User.objects.filter(email = email).exists():
+        elif Usuario.objects.filter(email = email).exists():
 
             messages.error(request, 'Esse e-mail já está cadastrado!')
 
@@ -63,7 +81,7 @@ def cadastro_usuario_view(request):
 
             try: 
 
-                user = User(
+                user = Usuario(
 
                     name = name,
                     cpf = cpf,

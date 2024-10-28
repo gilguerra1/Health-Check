@@ -126,9 +126,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = [
-    'authentication.backends.EmailAuthBackend',  
-    'django.contrib.auth.backends.ModelBackend',  
+    'authentication.backends.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
+
 AUTH_USER_MODEL = 'users.User'
 
 SESSION_COOKIE_AGE = 1209600  # 2 semanas
@@ -139,5 +140,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app/static'),
-]
+    os.path.join(BASE_DIR, 'app', 'static'),
+ ]
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/home/'
