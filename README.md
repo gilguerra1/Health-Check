@@ -9,7 +9,9 @@ Integrantes da equie:
   - João Pedro Costa de Oliveira 
   - Paulo Martins Cavalcanti 
   - Pedro Campello Monteiro Maia 
-  - Gabriel Abreu de Sousa Barbosa 
+  - Gabriel Abreu de Sousa Barbosa
+
+No projeto Health Check, utilizamos a prática de programação em pares para desenvolver o front-end, o que contribuiu para uma interface mais intuitiva e um código de melhor qualidade. A metodologia de pareamento, com um desenvolvedor atuando como driver e o outro como navegador, facilitou a identificação de problemas e permitiu uma revisão constante enquanto o código era implementado. Essa colaboração foi especialmente útil para criar componentes interativos e assegurar uma experiência amigável tanto para profissionais de saúde quanto para pacientes, ajudando a alcançar uma interface que facilitasse o acompanhamento de atividades físicas e dietas diárias.
 
 ![image](https://github.com/user-attachments/assets/21738390-400f-4a77-ba5c-dfe900cd1990)
 
